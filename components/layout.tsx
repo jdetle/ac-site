@@ -1,12 +1,14 @@
+import Head from "next/head";
+import Link from "next/link";
 import styled from "styled-components";
 import StyledFooter from "./footer";
 import StyledHeader from "./header";
 import T from "./typography";
-import Head from "next/head";
-import Link from "next/link";
 
 const Layout = styled.div`
-  flex: 1 1 10rem;
+display: grid  
+grid-template-rows: 3,
+
   height: 100%;
   width: 100%;
   display: flex;
@@ -50,24 +52,16 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
           </T.a>
         </Link>
         <span>{" // "}</span>
-        <Link href="/words_list">
-          <T.a aria-label={"Link to the buzzword page"} tabIndex={0}>
-            Buzzwords
+        <Link href="/contact">
+          <T.a aria-label={"Link to the contacts page"} tabIndex={0}>
+            Contact
           </T.a>
         </Link>
-        {/*
-        <span>{" // "}</span>
-        <Link href="/about">
-          <T.a aria-label={"Link to the about button"} tabIndex={0}>
-            About
-          </T.a>
-        </Link>
-        */}
       </nav>
     </StyledHeader>
     <div style={{ height: "100%" }}>{children}</div>
     <StyledFooter role="contentinfo">
-      {"All rights reserved: John Detlefs 2018"}
+      {"All rights reserved: Alyssa Cuda 2019"}
     </StyledFooter>
   </Layout>
 );

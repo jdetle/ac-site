@@ -3,9 +3,8 @@ import React from "react";
 import Button from "../components/button";
 import Container from "../components/container";
 import T from "../components/typography";
-const Title = "#IoT";
-const Explanation =
-  "The Internet of Things is a trending technology domain with applications that can be found in many areas. We have summarized a breakdown of the top 20 buzzwords that are found in tweets containing the hashtag #IoT.";
+const Title = "Alyssa Cuda";
+const Explanation = "Motivated to make tech for everyone";
 const ClickHere = "Top 20 Buzzwords";
 
 export default function Index() {

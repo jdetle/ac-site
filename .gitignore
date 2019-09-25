@@ -1,0 +1,17 @@
+lerna-debug.log
+node_modules/
+node_modules
+/node_modules
+junit.xml
+node_modules/
+tsconfig.tsbuildinfo
+**/*/tsconfig.tsbuildinfo
+lib/
+dist/
+coverage
+.nyc_output
+coverage.lcov
+*.tsbuildinfo
+yarn-error.log
+.vscode
+.idea
