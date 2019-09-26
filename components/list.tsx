@@ -27,9 +27,9 @@ export const li = styled.li`
   margin: 0;
   a {
     text-decoration: none;
-    color: white;
+    color: ${props => props.theme.listItemColor};
     :hover {
-      color: #35e0ff;
+      color: ${props => props.theme.listItemLinkHoverColor};
     }
   }
 
@@ -39,7 +39,7 @@ export const li = styled.li`
   :hover,
   :active,
   :focus {
-    color: red;
+    color: ${props => props.theme.listItemHoverColor};
     cursor: pointer;
   }
 `;

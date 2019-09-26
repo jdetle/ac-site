@@ -24,8 +24,8 @@ export default styled.a<{ primary?: boolean; xl?: boolean; active?: boolean }>`
 
   :hover {
     cursor: pointer;
-    color: #35e0ff;
-    border: 0.2rem solid #35e0ff;
+    color: ${props => props.theme.buttonHoverColor};
+    border: 0.2rem solid ${props => props.theme.buttonHoverBorderColor};
   }
   ${props =>
     props.active &&

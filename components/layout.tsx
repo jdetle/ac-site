@@ -6,37 +6,44 @@ import StyledHeader from "./header";
 import T from "./typography";
 
 const Layout = styled.div`
-display: grid  
-grid-template-rows: 3,
-
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-rows: 64px 1fr 64px;
+  grid-template-columns: repeat(3, 1fr);
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  overflow-y: hidden;
   header {
-    position: fixed;
-    top: 0;
-    height: 10%;
-    width: 100%;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: end3;
   }
   nav {
-    font-size: 2rem;
+    grid-column-start: 3;
+    grid-column-end: end3;
+    grid-row-start: 1;
+    font-size: 1.5rem;
     font-weight: 500;
-
+    place-items: center;
+    span,
+    a {
+      place-self: center;
+      place-items: center;
+    }
     @media (max-width: 420px) {
       font-size: 1rem;
     }
   }
   footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    height: 10%;
-    flex: 0 1 2rem;
+    grid-column-start: 1;
+    grid-column-end: end3;
+    grid-row-start: 3;
+    grid-row-end: end3;
+    background-color: ${props => props.theme.footerColor};
   }
 `;
-
-export default ({ children, title = "Buzzwords Of IoT" }) => (
+const DocumentTitle = "Alyssa Cuda";
+export default ({ children, title = DocumentTitle }) => (
   <Layout>
     <Head>
       <title>{title}</title>
@@ -51,7 +58,7 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
             Home
           </T.a>
         </Link>
-        <span>{" // "}</span>
+        <span>{" · "}</span>
         <Link href="/contact">
           <T.a aria-label={"Link to the contacts page"} tabIndex={0}>
             Contact
@@ -59,7 +66,7 @@ export default ({ children, title = "Buzzwords Of IoT" }) => (
         </Link>
       </nav>
     </StyledHeader>
-    <div style={{ height: "100%" }}>{children}</div>
+    <>{children}</>
     <StyledFooter role="contentinfo">
       {"All rights reserved: Alyssa Cuda 2019"}
     </StyledFooter>

@@ -1,11 +1,11 @@
 import fetch from "isomorphic-fetch";
 import React from "react";
+import styled from "styled-components";
+import BarChart from "../components/barchart";
 import Container from "../components/container";
 import List from "../components/list";
-import BarChart from "../components/barchart";
-import Word, { WordProps } from "../components/word";
 import T from "../components/typography";
-import styled from "styled-components";
+import Word, { WordProps } from "../components/word";
 const VizContainer = styled(Container)`
   @media (max-width: 420px) {
     display: none;
@@ -27,7 +27,7 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
     // Branch factor here is unavoiable due to CORS.
     let url: string;
     if (process.env.NODE_ENV === "production") {
-      url = "https://buzzwordsofiot.com";
+      url = "https://alyssacuda.com";
     } else {
       url = "http://localhost:8004";
     }
@@ -35,7 +35,7 @@ export class TopTwenty extends React.Component<ListProps, ListState> {
     return { words: data.topWords, totalUniqueWords: data.totalUniqueWords };
   }
   public state: ListState = { barView: false };
-  selectWord = (word: [string, WordProps], index: number) => {
+  public selectWord = (word: [string, WordProps], index: number) => {
     this.setState({
       selectedWord: word,
       selectedWordIndex: index

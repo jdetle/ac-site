@@ -1,13 +1,11 @@
-import { normalize } from "polished";
+import { normalize, rgb } from "polished";
 import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const StyledApp = styled.div`
   height: 100%;
-  background-color: rgb(59, 65, 113);
-  background-color: rgba(59, 65, 113, 1);
-  color: white;
   overflow-x: hidden;
+  background-color: ${props => props.theme.backgroundColor};
   video,
   img {
     display: block;
@@ -15,7 +13,10 @@ const StyledApp = styled.div`
   }
 `;
 
-const GlobalStyles = createGlobalStyle`
+interface AppTheme {
+  titleColor: "palevioletred";
+}
+const GlobalStyles = createGlobalStyle<{ theme: AppTheme }>`
 ${normalize()};
 *{
 box-sizing: border-box;
@@ -32,7 +33,6 @@ html, body{
   height: 100%
 }
 #index_title {
-
   -webkit-transition: font-size 1s; /* Safari */
   transition: font-size 1s;
   :hover, :active, :focus {
@@ -40,7 +40,7 @@ html, body{
   }
   font-size: 18rem;
   font-weight: 900;
-  color: palevioletred;
+  color: ${props => props.theme.titleColor};
   text-align: center;
   z-index: 1;
   padding: 0;
@@ -56,11 +56,25 @@ html, body{
 `;
 
 const App = props => {
+  const theme = {
+    titleColor: "palevioletred",
+    headerLinkColor: "black",
+    backgroundColor: `rgba(4, 4, 4, 0.1)`,
+    footerColor: "magenta",
+    linkHoverColor: "white",
+    linkColor: "black",
+    listItemLinkHoverColor: "white",
+    listItemColor: "black",
+    listItemHoverColor: "white",
+    linkContainerColor: "white"
+  };
   return (
-    <>
-      <GlobalStyles />
-      <StyledApp {...props}>{props.children}</StyledApp>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <StyledApp {...props}>{props.children}</StyledApp>
+      </>
+    </ThemeProvider>
   );
 };
 

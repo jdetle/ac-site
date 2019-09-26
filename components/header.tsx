@@ -7,6 +7,6 @@ export default styled.header`
   align-content: center;
   padding-right: 2rem;
   a {
-    color: white;
+    color: ${props => props.theme.headerLinkColor};
   }
 `;
